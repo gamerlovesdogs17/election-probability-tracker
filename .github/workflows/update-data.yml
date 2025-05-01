@@ -1,0 +1,25 @@
+name: Update Election Data
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Update election data
+      run: |
+        # Example: Fetch new data from an API and update the JSON file
+        curl -o data/election-data.json https://example.com/api/election-probabilities
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git add data/election-data.json
+        git commit -m "Update election data"
+        git push
