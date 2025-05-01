@@ -81,3 +81,15 @@ footer {
   background: #f1f1f1;
   border-top: 1px solid #ddd;
 }
+.update-info::before {
+  content: "Last Updated: May 2025 • Next Expected Update: June 2025";
+  display: block;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
