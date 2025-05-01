@@ -95,9 +95,10 @@ footer {
 }
 
 #map-container {
-  max-width: 1200px;
+  max-width: 875px;  /* Match Flourish SVG width */
   margin: 0 auto;
   text-align: center;
+  padding: 1rem 0;
 }
 
 #map-container svg {
