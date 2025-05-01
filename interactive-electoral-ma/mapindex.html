@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2028 Electoral Map - If Election Were Today</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      padding: 2rem;
+      text-align: center;
+    }
+    svg {
+      width: 100%;
+      max-width: 900px;
+    }
+    #tooltip {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #aaa;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      pointer-events: none;
+      display: none;
+      z-index: 1000;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>2028 Electoral Map: If the Election Were Today</h1>
+  <div id="map-container">
+    <!-- Insert your YAPms SVG content below -->
+    <!-- For example: <svg id="us-map"> ... </svg> -->
+    <!-- Paste your uploaded SVG file content here -->
+  </div>
+  <div id="tooltip"></div>
 
+  <script>
+    const electionData = {
+      "CA": { dem: 64, rep: 34, votes: 54 },
+      "TX": { dem: 44, rep: 55, votes: 40 },
+      "FL": { dem: 46, rep: 52, votes: 30 },
+      "NY": { dem: 60, rep: 38, votes: 28 },
+      "OH": { dem: 47, rep: 51, votes: 18 },
+      "PA": { dem: 51, rep: 47, votes: 19 },
+      "GA": { dem: 49, rep: 50, votes: 16 },
+      "WI": { dem: 50, rep: 48, votes: 10 },
+      "MI": { dem: 52, rep: 46, votes: 15 },
+      "AZ": { dem: 50, rep: 48, votes: 11 },
+      "NC": { dem: 48, rep: 51, votes: 16 },
+      "NV": { dem: 51, rep: 47, votes: 6 },
+      // Add more states with realistic estimates if desired
+    };
+
+    function getColor(dem, rep) {
+      const margin = dem - rep;
+      if (margin >= 10) return "#0033cc";     // Safe Dem
+      if (margin >= 5) return "#6699ff";      // Likely Dem
+      if (margin >= 3) return "#99bbff";      // Lean Dem
+      if (margin > -3) return "#cccccc";      // Tossup
+      if (margin > -5) return "#ff9999";      // Lean Rep
+      if (margin > -10) return "#ff6666";     // Likely Rep
+      return "#cc0000";                       // Safe Rep
+    }
+
+    const tooltip = document.getElementById("tooltip");
+
+    function setupMap() {
+      Object.entries(electionData).forEach(([stateID, { dem, rep }]) => {
+        const state = document.getElementById(stateID);
+        if (!state) return;
+
+        // Fill color
+        state.style.fill = getColor(dem, rep);
+
+        // Hover interactions
+        state.addEventListener("mouseenter", (e) => {
+          tooltip.innerHTML = `
+            <strong>${stateID}</strong><br/>
+            Democrat: ${dem}%<br/>
+            Republican: ${rep}%
+          `;
+          tooltip.style.display = "block";
+        });
+
+        state.addEventListener("mousemove", (e) => {
+          tooltip.style.top = `${e.pageY + 15}px`;
+          tooltip.style.left = `${e.pageX + 15}px`;
+        });
+
+        state.addEventListener("mouseleave", () => {
+          tooltip.style.display = "none";
+        });
+      });
+    }
+
+    // Run setup after DOM loads
+    window.onload = () => {
+      setupMap();
+    };
+  </script>
+</body>
+</html>
