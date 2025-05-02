@@ -4,37 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>If the 2028 Election Were Today</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>If the 2028 Election Were Today</h1>
-  </header>
-  <main>
+  <link rel="stylesheet" href="../styles.css" />
   <style>
-    #map-container {
+    #map-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       max-width: 1000px;
       margin: 0 auto;
-      text-align: center;
+      padding: 1rem;
     }
 
     .slider-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
     #month-display {
-      font-weight: bold;
       font-size: 1.1rem;
-      color: #1d1d1d;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
 
-    input[type="range"] {
-      width: 90%;
+    #month-slider {
+      width: 100%;
       max-width: 600px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      max-width: 960px;
     }
   </style>
 </head>
@@ -42,11 +45,12 @@
   <header>
     <h1>If the 2028 Election Were Today</h1>
   </header>
+
   <main>
-    <div id="map-container">
+    <div id="map-wrapper">
       <div class="slider-wrapper">
         <div id="month-display">May 2025</div>
-        <input type="range" id="month-slider" min="0" max="0" value="0" disabled>
+        <input type="range" id="month-slider" min="0" max="0" value="0" disabled />
       </div>
 <svg style="--auto-border-stroke-width: 1px; --region-stroke-color: #000000; transform-origin: 0px 0px 0px; transform: matrix(0.855628, 0, 0, 0.855628, 105.68, 0);" tossup-candidate="{&quot;id&quot;:&quot;&quot;,&quot;name&quot;:&quot;Tossup&quot;,&quot;defaultCount&quot;:0,&quot;margins&quot;:[{&quot;color&quot;:&quot;#cccccc&quot;}]}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 959 593" version="1.1" candidates="[{&quot;id&quot;:&quot;0&quot;,&quot;name&quot;:&quot;Democrat&quot;,&quot;defaultCount&quot;:0,&quot;margins&quot;:[{&quot;color&quot;:&quot;#0b2a73&quot;},{&quot;color&quot;:&quot;#2e55a3&quot;},{&quot;color&quot;:&quot;#5c83c5&quot;},{&quot;color&quot;:&quot;#a1c1ea&quot;}]},{&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Republican&quot;,&quot;defaultCount&quot;:0,&quot;margins&quot;:[{&quot;color&quot;:&quot;#8b0000&quot;},{&quot;color&quot;:&quot;#b22222&quot;},{&quot;color&quot;:&quot;#d46a6a&quot;},{&quot;color&quot;:&quot;#f6a6a6&quot;}]}]" auto-border-stroke-width-limit="1" auto-border-stroke-width="2" title="USA 2028 Presidential" type="presidential">
   <g map-type="regions">
@@ -228,19 +232,19 @@
       <object type="image/svg+xml" data="YapmsMap.svg" id="election-map" style="width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;"></object>
     </div>
   </main>
+
   <footer>
-    <p></p>
+    <nav>
+      <ul>
+        <li><a href="../index.html">2028 Party Forecast</a></li>
+        <li><a href="../dem.html">Dem. Nominee</a></li>
+        <li><a href="../rep.html">Rep. Nominee</a></li>
+        <li><a href="../house.html">2026 House</a></li>
+        <li><a href="../senate.html">2026 Senate</a></li>
+        <li><a href="mapindex.html">Current 2028 Map Projection</a></li>
+      </ul>
+    </nav>
+    <div class="update-info">Last Updated: May 2025 • Next Expected Update: June 2025</div>
   </footer>
 </body>
 </html>
-<nav>
-  <ul>
-    <li><a href="index.html">2028 Party Forecast</a></li>
-    <li><a href="dem.html">Dem. Nominee</a></li>
-    <li><a href="rep.html">Rep. Nominee</a></li>
-    <li><a href="house.html">2026 House</a></li>
-    <li><a href="senate.html">2026 Senate</a></li>
-    <li><a href="mapindex.html">Current 2028 Map Projection</a></li>
-  </ul>
-</nav>
-<div class="update-info"></div>
