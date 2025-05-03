@@ -120,6 +120,27 @@
       text-decoration: underline;
     }
 
+    #changelog-section {
+      display: none;
+      padding-top: 1rem;
+    }
+
+    .back-button {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .back-button button {
+      background-color: #183D8D;
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     @media (max-width: 600px) {
       .buttons {
         flex-direction: column;
@@ -140,36 +161,62 @@
 </head>
 <body>
   <div class="container">
-    <h1>2028 Election Forecast System</h1>
-    <p>This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.</p>
+    <!-- Home Page -->
+    <div id="home-section">
+      <h1>2028 Election Forecast System</h1>
+      <p>This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.</p>
 
-    <p>NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today.</em></p>
+      <p>NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today.</em></p>
 
-    <p><strong>Last Updated:</strong> May 2025<br/>
-       <strong>Next Expected Update:</strong> June 2025</p>
+      <p><strong>Last Updated:</strong> May 2025<br/>
+         <strong>Next Expected Update:</strong> June 2025</p>
 
-    <p>Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.</p>
+      <p>Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.</p>
 
-    <div class="buttons">
-      <button class="enter" onclick="location.href='home.html'">Enter Site</button>
-      <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-      <button class="changelog" onclick="location.href='changelog.html'">View Changelog</button>
+      <div class="buttons">
+        <button class="enter" onclick="location.href='home.html'">Enter Site</button>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button class="changelog" onclick="showChangelog()">View Changelog</button>
+      </div>
+
+      <div class="newsletter">
+        <h2>Join Our Email Newsletter</h2>
+        <p>Get notified about monthly forecast updates and important changes.</p>
+        <form>
+          <input type="email" placeholder="Enter your email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <a href="#">View Newsletter Archives</a>
+      </div>
     </div>
 
-    <div class="newsletter">
-      <h2>Join Our Email Newsletter</h2>
-      <p>Get notified about monthly forecast updates and important changes.</p>
-      <form>
-        <input type="email" placeholder="Enter your email address" />
-        <button type="submit">Subscribe</button>
-      </form>
-      <a href="#">View Newsletter Archives</a>
+    <!-- Changelog Section -->
+    <div id="changelog-section">
+      <h1>Changelog</h1>
+      <ul>
+        <li><strong>May 2025:</strong> Updated polling averages, added turnout estimates for Superior and Cascadia.</li>
+        <li><strong>April 2025:</strong> Senate control model refined to reflect updated generic ballot.</li>
+        <li><strong>March 2025:</strong> Economic model weighting updated to reduce volatility.</li>
+      </ul>
+      <div class="back-button">
+        <button onclick="goBack()">← Back to Home</button>
+      </div>
     </div>
   </div>
 
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
+    }
+
+    function showChangelog() {
+      document.getElementById("home-section").style.display = "none";
+      document.getElementById("changelog-section").style.display = "block";
+    }
+
+    function goBack() {
+      document.getElementById("changelog-section").style.display = "none";
+      document.getElementById("home-section").style.display = "block";
     }
   </script>
 </body>
