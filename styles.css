@@ -1,8 +1,21 @@
-.newsletter-list li a {
-  color: #003366;
-  text-decoration: none;
+.newsletter-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1.1em;
+  margin-top: 1rem;
 }
-.newsletter-list li a:hover {
+
+.newsletter-list li {
+  margin-bottom: 10px;
+}
+
+.styled-link {
+  color: #3366cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.styled-link:hover {
   text-decoration: underline;
 }
 
