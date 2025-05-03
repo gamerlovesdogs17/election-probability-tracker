@@ -9,12 +9,17 @@
 <body>
   <header>
     <h1>Newsletter Archives</h1>
+    <p>Browse previous issues of our forecast newsletter:</p>
   </header>
 
   <main>
-    <p>Browse previous issues of our forecast newsletter:</p>
     <ul class="newsletter-list">
-      <li><a href="https://buttondown.email/electionprobability/archive/tariffs-and-probability-consequences/">May 2025 – Tariffs and Probability Consequences</a></li>
+      <li>
+        <a href="https://buttondown.email/electionprobability/archive/tariffs-and-probability-consequences/" class="styled-link">
+          May 2025 – Tariffs and Probability Consequences
+        </a>
+      </li>
+      <!-- Future entries go here -->
     </ul>
   </main>
 
@@ -22,23 +27,7 @@
     <p></p>
   </footer>
 
-  <a href="index.html" class="home-button">Home</a>
-
-  <script>
-    // Apply dark mode on load
-    window.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark-mode");
-      }
-    });
-
-    // Toggle dark mode
-    function toggleDarkMode() {
-      const body = document.body;
-      const enabled = body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", enabled ? "enabled" : "disabled");
-    }
-  </script>
+  <a href="index.html" class="home-button">Back to Home</a>
 
   <nav>
     <ul>
@@ -50,6 +39,14 @@
       <li><a href="mapindex.html">Current 2028 Map Projection</a></li>
     </ul>
   </nav>
-  <div class="update-info"></div>
+
+  <script>
+    // Dark mode persistence
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
 </body>
 </html>
