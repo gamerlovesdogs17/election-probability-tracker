@@ -231,7 +231,21 @@
   </svg>
     </div>
   </main>
+<script>
+  // On load, apply dark mode if it's saved
+  window.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark-mode");
+    }
+  });
 
+  // Toggle dark mode and save preference
+  function toggleDarkMode() {
+    const body = document.body;
+    const enabled = body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", enabled ? "enabled" : "disabled");
+  }
+</script>
   <footer>
     <a href="index.html" class="home-button">Home</a>
 <nav>
