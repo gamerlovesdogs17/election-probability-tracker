@@ -97,10 +97,16 @@
     }
 
     .changelog {
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: #fafafa;
-      border-left: 4px solid #18387b;
+      display: none;
+    }
+
+    .changelog.active,
+    .main-content.active {
+      display: block;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     .changelog ul {
@@ -110,52 +116,64 @@
     .changelog li {
       margin-bottom: 0.5rem;
     }
+
+    .back-button {
+      margin-top: 2rem;
+      background-color: #666;
+    }
   </style>
 </head>
 <body>
   <div class="home-container">
-    <h1>2028 Election Forecast System</h1>
+    <!-- Main Site Intro -->
+    <div id="mainContent" class="main-content active">
+      <h1>2028 Election Forecast System</h1>
+      <p>This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.</p>
+      <p>NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.</p>
+      <p><strong>Last Updated:</strong> May 2025<br>
+         <strong>Next Expected Update:</strong> June 2025</p>
+      <p>Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.</p>
 
-    <p>
-      This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.
-    </p>
-    <p>
-      NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.
-    </p>
+      <a class="button" href="2028prob.html">Enter Site</a>
+      <button class="button secondary-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+      <button class="button secondary-button" onclick="showChangelog()">View Changelog</button>
 
-    <p><strong>Last Updated:</strong> May 2025<br />
-       <strong>Next Expected Update:</strong> June 2025</p>
-
-    <p>
-      Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.
-    </p>
-
-    <a class="button" href="2028prob.html">Enter Site</a>
-    <a class="button secondary-button" href="#" onclick="toggleDarkMode()">Toggle Dark Mode</a>
-
-    <div class="changelog">
-      <h2>Changelog</h2>
-      <ul>
-        <li><strong>5/3/2025:</strong> Added newsletter.</li>
-        <li><strong>5/2/2025:</strong> Added home page.</li>
-        <li><strong>5/1/2025:</strong> Website launched with probabilities from the past few months included, added 2028 map.</li>
-      </ul>
+      <div class="newsletter-box">
+        <h2>Join Our Email Newsletter</h2>
+        <p>Get notified about monthly forecast updates and important changes.</p>
+        <form action="https://formspree.io/f/xpwdpypy" method="POST">
+          <input type="email" name="email" placeholder="Enter your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p><a href="archives.html">View Newsletter Archives</a></p>
+      </div>
     </div>
 
-    <div class="newsletter-box">
-      <h2>Join Our Email Newsletter</h2>
-      <p>Get notified about monthly forecast updates and important changes.</p>
-      <form action="https://formspree.io/f/xpwdpypy" method="POST">
-        <input type="email" name="email" placeholder="Enter your email address" required />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p><a href="archives.html">View Newsletter Archives</a></p>
+    <!-- Changelog View -->
+    <div id="changelogPage" class="changelog">
+      <h1>Changelog</h1>
+      <ul>
+        <li><strong>5/3/2025:</strong> Added newsletter.</li>
+        <li><strong>5/2/2025:</strong> Home page created.</li>
+        <li><strong>5/1/2025:</strong> Website launched, probabilities from past months added. 2028 map projection created.</li>
+      </ul>
+      <button class="button back-button" onclick="showMain()">← Back to Home</button>
     </div>
   </div>
 
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
+    }
+
+    function showChangelog() {
+      document.getElementById("mainContent").classList.add("hidden");
+      document.getElementById("changelogPage").classList.remove("hidden");
+    }
+
+    function showMain() {
+      document.getElementById("changelogPage").classList.add("hidden");
+      document.getElementById("mainContent").classList.remove("hidden");
     }
   </script>
 </body>
