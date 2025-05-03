@@ -112,3 +112,41 @@ footer {
 .home-button:hover {
   background-color: #0d2d7a;
 }
+
+/* Dark Mode Theme */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .home-container {
+  background-color: #1e1e1e;
+  box-shadow: none;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode p,
+body.dark-mode ul {
+  color: #f0f0f0;
+}
+
+body.dark-mode .start-button,
+body.dark-mode .toggle-button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .start-button:hover,
+body.dark-mode .toggle-button:hover {
+  background-color: #444;
+}
+
+body.dark-mode .update-info {
+  color: #ccc;
+}
+
+body.dark-mode a {
+  color: #88b8ff;
+}
+
