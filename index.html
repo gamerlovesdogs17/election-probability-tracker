@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -26,9 +25,10 @@
       margin-bottom: 1rem;
     }
 
-    .start-button {
+    .start-button,
+    .toggle-button {
       display: block;
-      margin: 2rem auto 0;
+      margin: 1.5rem auto 0;
       padding: 0.75rem 2rem;
       font-size: 1rem;
       background-color: #18387b;
@@ -39,37 +39,77 @@
       transition: background-color 0.3s ease;
     }
 
+    .toggle-button {
+      background-color: #555;
+    }
+
     .start-button:hover {
       background-color: #102757;
     }
-  </style>
-  <script>
-    // Prevents user from revisiting the intro page after entering
-    if (sessionStorage.getItem("visited") === "true") {
-      window.location.href = "index.html";
+
+    .toggle-button:hover {
+      background-color: #333;
     }
 
+    #changelog {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    #changelog ul {
+      padding-left: 1.2rem;
+    }
+  </style>
+  <script>
     function enterSite() {
-      sessionStorage.setItem("visited", "true");
-      window.location.href = "index.html";
+      window.location.href = "2028prob.html";
+    }
+
+    function toggleChangelog() {
+      const overview = document.getElementById("overview");
+      const changelog = document.getElementById("changelog");
+      const toggleBtn = document.getElementById("toggle-btn");
+
+      if (changelog.style.display === "none") {
+        overview.style.display = "none";
+        changelog.style.display = "block";
+        toggleBtn.textContent = "Back to Overview";
+      } else {
+        changelog.style.display = "none";
+        overview.style.display = "block";
+        toggleBtn.textContent = "View Changelog";
+      }
     }
   </script>
 </head>
 <body>
   <div class="home-container">
     <h1>Welcome to the 2028 Election Probability Tracker</h1>
-    <p>
-      This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.
-    </p>
-    <p>
-      NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.
-    </p>
-    <p><strong>Last Updated:</strong> May 2025<br />
-       <strong>Next Expected Update:</strong> June 2025</p>
-    <p>
-      Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.
-    </p>
-    <button class="start-button" onclick="location.href='2028prob.html'">Enter Site</button>
+
+    <div id="overview">
+      <p>
+        This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.
+      </p>
+      <p>
+        NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.
+      </p>
+      <p><strong>Last Updated:</strong> May 2025<br />
+         <strong>Next Expected Update:</strong> June 2025</p>
+      <p>
+        Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.
+      </p>
+    </div>
+
+    <div id="changelog">
+      <h2>Changelog</h2>
+      <ul>
+        <li><strong>May 2025:</strong> Wisconsin moved from Lean D to Tossup. Georgia shifted slightly more Republican.</li>
+        <li><strong>April 2025:</strong> NEFI launched. Initial projections established using polling and registration trends.</li>
+      </ul>
+    </div>
+
+    <button class="start-button" onclick="enterSite()">Enter Site</button>
+    <button class="toggle-button" id="toggle-btn" onclick="toggleChangelog()">View Changelog</button>
   </div>
 </body>
 </html>
