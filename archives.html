@@ -1,21 +1,55 @@
-<!-- archives.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Newsletter Archives</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="home-container">
+  <header>
     <h1>Newsletter Archives</h1>
-    <p>Browse previous issues of our forecast newsletter:</p>
+  </header>
 
+  <main>
+    <p>Browse previous issues of our forecast newsletter:</p>
     <ul class="newsletter-list">
       <li><a href="https://buttondown.email/electionprobability/archive/tariffs-and-probability-consequences/">May 2025 – Tariffs and Probability Consequences</a></li>
     </ul>
+  </main>
 
-    <a class="home-button" href="index.html">Back to Home</a>
-  </div>
+  <footer>
+    <p></p>
+  </footer>
+
+  <a href="index.html" class="home-button">Home</a>
+
+  <script>
+    // Apply dark mode on load
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+
+    // Toggle dark mode
+    function toggleDarkMode() {
+      const body = document.body;
+      const enabled = body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", enabled ? "enabled" : "disabled");
+    }
+  </script>
+
+  <nav>
+    <ul>
+      <li><a href="2028prob.html">2028 Party Forecast</a></li>
+      <li><a href="dem.html">Dem. Nominee</a></li>
+      <li><a href="rep.html">Rep. Nominee</a></li>
+      <li><a href="house.html">2026 House</a></li>
+      <li><a href="senate.html">2026 Senate</a></li>
+      <li><a href="mapindex.html">Current 2028 Map Projection</a></li>
+    </ul>
+  </nav>
+  <div class="update-info"></div>
 </body>
 </html>
