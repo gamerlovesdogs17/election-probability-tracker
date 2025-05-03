@@ -11,16 +11,26 @@
       background-color: #f4f5f7;
       margin: 0;
       padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #e4e4e4;
     }
 
     .container {
       max-width: 960px;
-      margin: 0 auto;
+      margin: 3rem auto;
       padding: 2rem;
-      background-color: #fff;
+      background-color: #ffffff;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
-      margin-top: 3rem;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode .container {
+      background-color: #1e1e1e;
     }
 
     h1 {
@@ -60,7 +70,7 @@
       color: #fff;
     }
 
-    .buttons .dark-mode {
+    .buttons .dark-mode-toggle {
       background-color: #333;
       color: #fff;
     }
@@ -75,6 +85,10 @@
       border-radius: 12px;
       padding: 2rem;
       margin-top: 3rem;
+    }
+
+    body.dark-mode .newsletter {
+      background-color: #2e2e2e;
     }
 
     .newsletter h2 {
@@ -137,9 +151,9 @@
     <p>Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.</p>
 
     <div class="buttons">
-      <button class="enter">Enter Site</button>
-      <button class="dark-mode">Toggle Dark Mode</button>
-      <button class="changelog">View Changelog</button>
+      <button class="enter" onclick="location.href='home.html'">Enter Site</button>
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+      <button class="changelog" onclick="location.href='changelog.html'">View Changelog</button>
     </div>
 
     <div class="newsletter">
@@ -152,5 +166,11 @@
       <a href="#">View Newsletter Archives</a>
     </div>
   </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
