@@ -2,77 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Newsletter Archives</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Election Forecast System</title>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f4f4f4;
-      color: #1a1a1a;
+      font-family: system-ui, sans-serif;
       margin: 0;
-      padding: 0 2rem;
+      background-color: #f5f6f7;
+      color: #1a1a1a;
     }
 
-    .container {
+    .home-container {
       max-width: 800px;
       margin: 4rem auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      text-align: center;
+      color: #18387b;
+    }
+
+    h2 {
+      color: #18387b;
+      margin-top: 2.5rem;
     }
 
     p {
-      margin-bottom: 2rem;
-      font-size: 1rem;
-    }
-
-    .archive-list a {
-      display: block;
+      line-height: 1.6;
       margin-bottom: 1rem;
-      color: #1a4fb2;
-      font-weight: 600;
-      text-decoration: none;
     }
 
-    .archive-list a:hover {
-      text-decoration: underline;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 3rem;
-      background-color: #1a4fb2;
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
+    .button {
+      display: block;
+      width: fit-content;
+      margin: 1rem auto;
+      padding: 0.75rem 2rem;
       font-size: 1rem;
+      background-color: #18387b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
       text-decoration: none;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: background-color 0.2s ease;
+      transition: background-color 0.3s ease;
     }
 
-    .back-btn:hover {
-      background-color: #153b8a;
+    .button:hover {
+      background-color: #102757;
+    }
+
+    .secondary-button {
+      background-color: #444;
+    }
+
+    .secondary-button:hover {
+      background-color: #222;
+    }
+
+    .newsletter-box {
+      background: #f2f2f2;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    input[type="email"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 60%;
+      max-width: 300px;
+      margin-right: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .newsletter-box button {
+      padding: 0.5rem 1.25rem;
+      background-color: #18387b;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .newsletter-box button:hover {
+      background-color: #0f2e60;
+    }
+
+    .changelog {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #fafafa;
+      border-left: 4px solid #18387b;
+    }
+
+    .changelog ul {
+      padding-left: 1.2rem;
+    }
+
+    .changelog li {
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Newsletter Archives</h1>
-    <p>Browse previous issues of our forecast newsletter:</p>
+  <div class="home-container">
+    <h1>2028 Election Forecast System</h1>
 
-    <div class="archive-list">
-      <a href="https://buttondown.email/electionforecast/archive/tariffs-and-probability-consequences/">May 2025 – Tariffs and Probability Consequences</a>
-      <!-- Add future issues below -->
+    <p>
+      This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.
+    </p>
+    <p>
+      NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.
+    </p>
+
+    <p><strong>Last Updated:</strong> May 2025<br />
+       <strong>Next Expected Update:</strong> June 2025</p>
+
+    <p>
+      Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.
+    </p>
+
+    <a class="button" href="2028prob.html">Enter Site</a>
+    <a class="button secondary-button" href="#" onclick="toggleDarkMode()">Toggle Dark Mode</a>
+
+    <div class="changelog">
+      <h2>Changelog</h2>
+      <ul>
+        <li><strong>5/3/2025:</strong> Added newsletter.</li>
+        <li><strong>5/2/2025:</strong> Added home page.</li>
+        <li><strong>5/1/2025:</strong> Website launched with probabilities from the past few months included, added 2028 map.</li>
+      </ul>
     </div>
 
-    <a href="index.html" class="back-btn">← Back to Home</a>
+    <div class="newsletter-box">
+      <h2>Join Our Email Newsletter</h2>
+      <p>Get notified about monthly forecast updates and important changes.</p>
+      <form action="https://formspree.io/f/xpwdpypy" method="POST">
+        <input type="email" name="email" placeholder="Enter your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p><a href="archives.html">View Newsletter Archives</a></p>
+    </div>
   </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
