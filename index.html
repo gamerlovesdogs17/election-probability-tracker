@@ -76,6 +76,8 @@
 
     #changelogPage {
       display: none;
+      max-width: 800px;
+      margin: 0 auto;
       padding-top: 2rem;
     }
 
@@ -86,11 +88,23 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     ul {
       padding-left: 1.5rem;
+    }
+
+    .changelog-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .dark-mode .changelog-container {
+      background: #2a2a2a;
+      box-shadow: 0 2px 6px rgba(255,255,255,0.05);
     }
   </style>
 </head>
@@ -121,13 +135,15 @@
 
 <!-- Changelog View -->
 <div id="changelogPage">
-  <h1>Changelog</h1>
-  <ul>
-    <li><strong>5/3/2025:</strong> Added newsletter.</li>
-    <li><strong>5/2/2025:</strong> Home page created.</li>
-    <li><strong>5/1/2025:</strong> Website launched, probabilities from past months added. 2028 map projection created.</li>
-  </ul>
-  <button class="back-button" onclick="showMain()">← Back to Home</button>
+  <div class="changelog-container">
+    <h1>Changelog</h1>
+    <ul>
+      <li><strong>5/3/2025:</strong> Added newsletter.</li>
+      <li><strong>5/2/2025:</strong> Home page created.</li>
+      <li><strong>5/1/2025:</strong> Website launched, probabilities from past months added. 2028 map projection created.</li>
+    </ul>
+    <button class="back-button" onclick="showMain()">← Back to Home</button>
+  </div>
 </div>
 
 <script>
