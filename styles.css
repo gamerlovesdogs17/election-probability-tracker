@@ -1,3 +1,11 @@
+.newsletter-list li a {
+  color: #003366;
+  text-decoration: none;
+}
+.newsletter-list li a:hover {
+  text-decoration: underline;
+}
+
 /* Newsletter Form Styles */
 .newsletter-section {
   background: #f4f4f4;
