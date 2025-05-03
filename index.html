@@ -3,119 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>2028 Election Forecast System</title>
+  <title>Election Forecast System</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background-color: #f7f8fa;
-      color: #1a1a1a;
+      font-family: sans-serif;
+      background-color: #f2f3f5;
+      color: #222;
+      margin: 0;
+      padding: 2rem;
       transition: background-color 0.3s, color 0.3s;
     }
+
     .dark-mode {
-      background-color: #1a1a1a;
-      color: #f0f0f0;
+      background-color: #181a1b;
+      color: #eee;
     }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
     .button {
-      padding: 0.7rem 1.5rem;
-      margin: 0.3rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .button:hover {
-      opacity: 0.9;
-    }
-    .button-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem 0.25rem;
       background-color: #1e3a8a;
       color: white;
-    }
-    .button-secondary {
-      background-color: #4b4b4b;
-      color: white;
-    }
-    .newsletter-box {
-      background-color: #f2f2f2;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      border-radius: 10px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
       text-align: center;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
+
+    .secondary-button {
+      background-color: #444;
+    }
+
+    .newsletter-box {
+      margin-top: 2rem;
+      background: #eee;
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 600px;
+    }
+
     .dark-mode .newsletter-box {
-      background-color: #2d2d2d;
+      background: #2a2a2a;
     }
-    input[type="email"] {
+
+    form input[type="email"] {
       padding: 0.5rem;
-      width: 250px;
-      max-width: 90%;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      width: 60%;
+      max-width: 300px;
       margin-right: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
-    form {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+
+    form button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #1e3a8a;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    .hidden {
+
+    #changelogPage {
       display: none;
+      padding-top: 2rem;
+    }
+
+    .back-button {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
     }
   </style>
 </head>
 <body>
-  <div id="mainPage">
-    <h1>2028 Election Forecast System</h1>
-    <p>This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.</p>
-    <p>NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.</p>
 
-    <p><strong>Last Updated:</strong> May 2025<br>
-    <strong>Next Expected Update:</strong> June 2025</p>
+<div id="mainPage">
+  <h1>2028 Election Forecast System</h1>
+  <p>This project uses the <strong>National Election Forecast Index (NEFI)</strong>, a composite model that blends expert analysis, polling averages, voter registration trends, and historical voting behavior to estimate the probability of electoral outcomes.</p>
+  <p>NEFI considers both national and state-specific dynamics and is updated monthly with the latest political, economic, and turnout data. The projections aim to reflect what would happen <em>if the election were held today</em>.</p>
+  <p><strong>Last Updated:</strong> May 2025<br>
+     <strong>Next Expected Update:</strong> June 2025</p>
+  <p>Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.</p>
 
-    <p>Use the pages section below every page to explore forecasts for the Presidential race, party nominees, Senate and House control, and interactive maps.</p>
+  <a class="button" href="2028prob.html">Enter Site</a>
+  <button class="button secondary-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  <button class="button secondary-button" onclick="showChangelog()">View Changelog</button>
 
-    <a class="button button-primary" href="2028prob.html">Enter Site</a>
-    <button class="button button-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    <button class="button button-secondary" onclick="showChangelog()">View Changelog</button>
-
-    <div class="newsletter-box">
-      <h2>Join Our Email Newsletter</h2>
-      <p>Get notified about monthly forecast updates and important changes.</p>
-      <form action="https://formspree.io/f/xpwpypyy" method="POST">
-        <input type="email" name="email" placeholder="Enter your email address" required />
-        <button type="submit" class="button button-primary">Subscribe</button>
-      </form>
-      <p><a href="archives.html" style="color: purple;">View Newsletter Archives</a></p>
-    </div>
+  <div class="newsletter-box">
+    <h2>Join Our Email Newsletter</h2>
+    <p>Get notified about monthly forecast updates and important changes.</p>
+    <form action="https://formspree.io/f/xpwdpypy" method="POST">
+      <input type="email" name="email" placeholder="Enter your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p><a href="archives.html">View Newsletter Archives</a></p>
   </div>
+</div>
 
-  <!-- Fake Changelog Page -->
-  <div id="changelogPage" class="hidden">
-    <h1>Changelog</h1>
-    <ul>
-      <li><strong>5/3/2025:</strong> Added newsletter.</li>
-      <li><strong>5/2/2025:</strong> Home page created.</li>
-      <li><strong>5/1/2025:</strong> Website launched, probabilities from past months added. 2028 map projection created.</li>
-    </ul>
-    <button class="button button-secondary" onclick="showMain()">← Back to Home</button>
-  </div>
+<!-- Changelog View -->
+<div id="changelogPage">
+  <h1>Changelog</h1>
+  <ul>
+    <li><strong>5/3/2025:</strong> Added newsletter.</li>
+    <li><strong>5/2/2025:</strong> Home page created.</li>
+    <li><strong>5/1/2025:</strong> Website launched, probabilities from past months added. 2028 map projection created.</li>
+  </ul>
+  <button class="back-button" onclick="showMain()">← Back to Home</button>
+</div>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
 
-    function showChangelog() {
-      document.getElementById("mainPage").classList.add("hidden");
-      document.getElementById("changelogPage").classList.remove("hidden");
-    }
+  function showChangelog() {
+    document.getElementById('mainPage').style.display = 'none';
+    document.getElementById('changelogPage').style.display = 'block';
+  }
 
-    function showMain() {
-      document.getElementById("changelogPage").classList.add("hidden");
-      document.getElementById("mainPage").classList.remove("hidden");
-    }
-  </script>
+  function showMain() {
+    document.getElementById('mainPage').style.display = 'block';
+    document.getElementById('changelogPage').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
