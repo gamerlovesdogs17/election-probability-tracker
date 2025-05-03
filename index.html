@@ -71,25 +71,37 @@
       border-radius: 6px;
     }
 
+    .newsletter-box a {
+      display: block;
+      margin-top: 10px;
+    }
+
     .dark-mode .newsletter-box {
       background-color: #2e2e2e;
     }
 
     #changelogPage {
       display: none;
-      padding: 2rem;
     }
 
-    #changelogPage .inner {
+    #changelogPage.active {
+      display: block;
+    }
+
+    #mainContent.hidden {
+      display: none;
+    }
+
+    .changelog-content {
       max-width: 700px;
       margin: auto;
-      background: #ffffff;
+      background: #fff;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .dark-mode #changelogPage .inner {
+    .dark-mode .changelog-content {
       background: #2a2a2a;
       color: #eee;
     }
@@ -118,15 +130,15 @@
         <input type="email" name="email" placeholder="Enter your email address" required />
         <button type="submit">Subscribe</button>
       </form>
-      <p><a href="archives.html">View Newsletter Archives</a></p>
+      <a href="archives.html">View Newsletter Archives</a>
     </div>
   </div>
 
-  <!-- Changelog Page -->
+  <!-- Fake Page: Changelog -->
   <div id="changelogPage">
-    <div class="inner">
+    <div class="changelog-content">
       <h1>Changelog</h1>
-      <ul style="line-height: 1.8;">
+      <ul>
         <li><strong>5/3/2025:</strong> Added newsletter.</li>
         <li><strong>5/2/2025:</strong> Home page created.</li>
         <li><strong>5/1/2025:</strong> Website launched, probabilities from past months added. 2028 map projection created.</li>
@@ -135,21 +147,21 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
 
     function showChangelog() {
-      document.getElementById('mainContent').style.display = 'none';
-      document.getElementById('changelogPage').style.display = 'block';
+      document.getElementById("mainContent").classList.add("hidden");
+      document.getElementById("changelogPage").classList.add("active");
     }
 
     function showMain() {
-      document.getElementById('mainContent').style.display = 'block';
-      document.getElementById('changelogPage').style.display = 'none';
+      document.getElementById("mainContent").classList.remove("hidden");
+      document.getElementById("changelogPage").classList.remove("active");
     }
   </script>
+
 </body>
 </html>
